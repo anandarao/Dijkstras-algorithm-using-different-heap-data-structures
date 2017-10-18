@@ -1,30 +1,39 @@
 #include <iostream>
+#include <ctime>
 #include <Graph.h>
 
 using namespace std;
 
 int main()
 {
-    int V = 9;
+    int V, start, stop, source, n;
+    cout << "Enter the number of vertices in the graph : ";
+    cin >> V;
     Graph g(V);
 
-    //  making above shown graph
-    g.addEdge(0, 1, 4);
-    g.addEdge(0, 7, 8);
-    g.addEdge(1, 2, 8);
-    g.addEdge(1, 7, 11);
-    g.addEdge(2, 3, 7);
-    g.addEdge(2, 8, 2);
-    g.addEdge(2, 5, 4);
-    g.addEdge(3, 4, 9);
-    g.addEdge(3, 5, 14);
-    g.addEdge(4, 5, 10);
-    g.addEdge(5, 6, 2);
-    g.addEdge(6, 7, 1);
-    g.addEdge(6, 8, 6);
-    g.addEdge(7, 8, 7);
+    cout << "Enter the source vertex : ";
+    cin >> source;
 
-    g.shortestPath(0, BINARY);
+    for (int i = 0; i < V; i++)
+    {
+        cout << "Enter the number of neighbours of vertex " << i << " :";
+        cin >> n;
+        assert(n < V);
+        cout << "Enter the neighbours of vertex " << i << "along with the edge weigths." << endl;
+        for (int j = 0; j < n; j++)
+        {
+            int u, w;
+            cin >> u >> w;
+            assert(u < V && w >= 0);
+            g.addEdge(i, u, w);
+        }
+    }
+
+    cout << "-----BINARY HEAPS-----" << endl;
+    start = clock();
+	g.shortestPath(source, BINARY);
+	stop = clock();
+    cout << "Execution time using Binary Heaps: " << (stop-start)/double(CLOCKS_PER_SEC)*1000 << endl;
 
     return 0;
 }

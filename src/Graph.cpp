@@ -45,7 +45,9 @@ void Graph::shortestPath(int src, int heap_type)
         }
     }
 
-    printf("Vertex   Distance from Source\n");
+    printf("Vertex Distance from Source\n");
     for (int i = 0; i < V; ++i)
         printf("%d \t\t %d\n", i, dist[i]);
+
+    printf("Number of Operations performed : %d \n", (*heap).getOperations());
 }

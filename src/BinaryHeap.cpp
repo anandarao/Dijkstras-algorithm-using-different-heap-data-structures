@@ -4,12 +4,17 @@ using namespace std;
 
 BinaryHeap::BinaryHeap()
 {
-    //ctor
+        operations = 0;
+}
+
+int BinaryHeap::getOperations()
+{
+    return operations;
 }
 
 void BinaryHeap::push(pair<int, int> node)
 {
-    insert_value(node);
+    insertValue(node);
     return;
 }
 
@@ -26,12 +31,12 @@ pair<int, int> BinaryHeap::pop()
     if(nodes.size() == 0)
         return make_pair(-1, -1);
 
-    pair<int, int> node = extract_min();
+    pair<int, int> node = extractMin();
 
     return node;
 }
 
-void BinaryHeap::min_heapify(int i)
+void BinaryHeap::minHeapify(int i)
 {
     int left  = 2*i + 1;
     int right = 2*i + 2;
@@ -45,28 +50,31 @@ void BinaryHeap::min_heapify(int i)
     if(smallest != i)
     {
         swap (nodes[i], nodes[smallest]);
-        min_heapify (smallest);
+        operations++;
+        minHeapify (smallest);
     }
 }
 
-pair<int, int> BinaryHeap::extract_min()
+pair<int, int> BinaryHeap::extractMin()
 {
     if(nodes.size() == 0)
         return make_pair(-1, -1);
     pair<int, int> node = nodes[0];
     nodes[0] = nodes[nodes.size()-1];
+    operations++;
     nodes.pop_back();
-    min_heapify(0);
+    minHeapify(0);
     return node;
 }
 
-void BinaryHeap::insert_value(pair<int, int> node)
+void BinaryHeap::insertValue(pair<int, int> node)
 {
     nodes.push_back(node);
     int i;
     while(i > 0 and nodes[(i-1)/2].first > nodes[i].first)
     {
         swap(nodes[(i-1)/2], nodes[i]);
+        operations++;
         i = (i-1)/2;
     }
     return;
