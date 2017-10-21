@@ -7,6 +7,7 @@ using namespace std;
 class Heap
 {
     public:
+        Heap();
         virtual pair<int, int> top() = 0;
         virtual pair<int, int> pop() = 0;
         virtual void push(pair<int, int>) = 0;

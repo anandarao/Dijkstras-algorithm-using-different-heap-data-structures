@@ -29,11 +29,24 @@ int main()
         }
     }
 
-    cout << "-----BINARY HEAPS-----" << endl;
+    /*cout << "-----BINARY HEAPS-----" << endl;
     start = clock();
 	g.shortestPath(source, BINARY);
 	stop = clock();
     cout << "Execution time using Binary Heaps: " << (stop-start)/double(CLOCKS_PER_SEC)*1000 << endl;
 
+    cout << "-----BINOMIAL HEAPS-----" << endl;
+    start = clock();
+	g.shortestPath(source, BINOMIAL);
+	stop = clock();
+    cout << "Execution time using Binomial Heaps: " << (stop-start)/double(CLOCKS_PER_SEC)*1000 << endl;*/
+
+    cout << "-----FIBONACCI HEAPS-----" << endl;
+    start = clock();
+	g.shortestPath(source, FIBONACCI);
+	stop = clock();
+    cout << "Execution time using Fibonacci Heaps: " << (stop-start)/double(CLOCKS_PER_SEC)*1000 << endl;
+
     return 0;
 }
+
