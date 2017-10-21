@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1508346572 source:/home/anand16/Github/Dijkstras-algorithm-using-different-heap-data-structures/main.cpp
+1508576409 source:/home/anand16/Github/Dijkstras-algorithm-using-different-heap-data-structures/main.cpp
 	<iostream>
 	<ctime>
 	<Graph.h>
@@ -11,12 +11,14 @@
 1508345400 /home/anand16/Github/Dijkstras-algorithm-using-different-heap-data-structures/include/BinaryHeap.h
 	"Heap.h"
 
-1508345514 /home/anand16/Github/Dijkstras-algorithm-using-different-heap-data-structures/include/Heap.h
+1508576500 /home/anand16/Github/Dijkstras-algorithm-using-different-heap-data-structures/include/Heap.h
 	<bits/stdc++.h>
 
-1508346625 source:/home/anand16/Github/Dijkstras-algorithm-using-different-heap-data-structures/src/Graph.cpp
+1508575743 source:/home/anand16/Github/Dijkstras-algorithm-using-different-heap-data-structures/src/Graph.cpp
 	"Graph.h"
 	"BinaryHeap.h"
+	"BinomialHeap.h"
+	"FibonacciHeap.h"
 
 1508341434 /home/anand16/Github/Dijkstras-algorithm-using-different-heap-data-structures/include/Graph.h
 	<bits/stdc++.h>
@@ -61,4 +63,18 @@
 
 1508571144 /home/sheetal/Music/Dijkstras-algorithm-using-different-heap-data-structures/include/FibonacciHeap.h
 	"Heap.h"
+
+1508576399 /home/anand16/Github/Dijkstras-algorithm-using-different-heap-data-structures/include/BinomialHeap.h
+	"Heap.h"
+
+1508576288 /home/anand16/Github/Dijkstras-algorithm-using-different-heap-data-structures/include/FibonacciHeap.h
+	"Heap.h"
+
+1508576365 source:/home/anand16/Github/Dijkstras-algorithm-using-different-heap-data-structures/src/BinomialHeap.cpp
+	"BinomialHeap.h"
+	<bits/stdc++.h>
+
+1508576280 source:/home/anand16/Github/Dijkstras-algorithm-using-different-heap-data-structures/src/FibonacciHeap.cpp
+	"FibonacciHeap.h"
+	<bits/stdc++.h>
 

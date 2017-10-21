@@ -9,6 +9,8 @@ struct Node
     pair<int,int> data;
     int degree;
     Node *child, *sibling, *parent;
+
+    explicit Node(pair<int, int>);
 };
 
 class FibonacciHeap: public Heap
@@ -23,7 +25,6 @@ class FibonacciHeap: public Heap
         void printHeap();
     protected:
         pair<int, int> extractMin();
-        Node* newNode(pair<int,int> key);
         void insertATreeInHeap(Node *tree);
         list<Node*> removeMinFromTreeReturnFHeap(Node *tree,Node*& n);
         Node* mergeFibonacciTrees(Node *b1, Node *b2);

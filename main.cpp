@@ -29,7 +29,7 @@ int main()
         }
     }
 
-    /*cout << "-----BINARY HEAPS-----" << endl;
+    cout << "-----BINARY HEAPS-----" << endl;
     start = clock();
 	g.shortestPath(source, BINARY);
 	stop = clock();
@@ -39,7 +39,7 @@ int main()
     start = clock();
 	g.shortestPath(source, BINOMIAL);
 	stop = clock();
-    cout << "Execution time using Binomial Heaps: " << (stop-start)/double(CLOCKS_PER_SEC)*1000 << endl;*/
+    cout << "Execution time using Binomial Heaps: " << (stop-start)/double(CLOCKS_PER_SEC)*1000 << endl;
 
     cout << "-----FIBONACCI HEAPS-----" << endl;
     start = clock();

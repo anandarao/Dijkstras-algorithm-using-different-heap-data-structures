@@ -36,19 +36,18 @@ pair<int, int> FibonacciHeap::pop()
 
     return Node;
 }
-Node* FibonacciHeap::newNode(pair<int,int> key)
+
+Node::Node(pair<int,int> key)
 {
-    Node *temp = new Node;
-    temp->data = key;
-    temp->degree = 0;
-    temp->child = temp->parent = temp->sibling = NULL;
-    return temp;
+    this->data = key;
+    this->degree = 0;
+    this->child = this->parent = this->sibling = NULL;
 }
 
 
 void FibonacciHeap::insert(pair<int,int> key)
 {
-    Node *temp = newNode(key);
+    Node *temp = new Node(key);
     insertATreeInHeap(temp);
 }
 
@@ -80,8 +79,8 @@ pair<int, int> FibonacciHeap::extractMin()
     temp = getMin();
     list<Node*>::iterator it;
     it = heap.begin();
-    Node *min_newheap = newNode(make_pair(INT_MAX,-1));
-    Node *min_lo = newNode(make_pair(INT_MAX,-1));
+    Node *min_newheap = new Node(make_pair(INT_MAX,-1));
+    Node *min_lo = new Node(make_pair(INT_MAX,-1));
     while (it != heap.end())
     {
         if (*it != temp)
@@ -94,11 +93,8 @@ pair<int, int> FibonacciHeap::extractMin()
     }
     operations++;
     lo=removeMinFromTreeReturnFHeap(temp,min_lo);
-    cout << "after removeMinFromTreeReturnBHeap" << endl;
     heap = unionFibonacciHeap(new_heap,min_newheap,lo,min_lo);
-    cout << "after unionBionomialHeap" << endl;
     adjust();
-    cout << "after adjust" << endl;
     return temp->data;
 }
 
@@ -129,7 +125,6 @@ Node* FibonacciHeap::mergeFibonacciTrees(Node *b1, Node *b2)
 list<Node*> FibonacciHeap::unionFibonacciHeap(list<Node*> l1,Node *min1, list<Node*> l2, Node *min2)
 {
     copy(l1.rbegin(), l1.rend(), front_inserter(l2));
-    cout << "after copy" << endl;
     if(min1==NULL)
         minNode = min2;
     else if(min2==NULL)
@@ -175,9 +170,7 @@ void FibonacciHeap::insertATreeInHeap(Node *tree)
 {
     list<Node*> temp;
     temp.push_back(tree);
-    cout << "b4 union" << endl;
     heap = unionFibonacciHeap(heap,minNode,temp,tree);
-    cout << "after union" << endl;
     return;
 }
 
@@ -191,7 +184,6 @@ void FibonacciHeap::printTree(Node *h)
 {
     while (h)
     {
-        cout <<"("<< (h->data).first << " " << (h->data).second<< ")";
         printTree(h->child);
         h = h->sibling;
     }

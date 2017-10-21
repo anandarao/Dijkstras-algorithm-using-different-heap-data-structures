@@ -9,6 +9,8 @@ struct BNode
     pair<int,int> data;
     int degree;
     BNode *child, *sibling, *parent;
+
+    explicit BNode(pair<int, int>);
 };
 
 class BinomialHeap: public Heap
@@ -23,7 +25,6 @@ class BinomialHeap: public Heap
         void printHeap();
     protected:
         pair<int, int> extractMin();
-        BNode* newBNode(pair<int,int> key);
         void insertATreeInHeap(BNode *tree);
         list<BNode*> removeMinFromTreeReturnBHeap(BNode *tree);
         BNode* mergeBinomialTrees(BNode *b1, BNode *b2);

@@ -55,25 +55,20 @@ pair<int, int> BinomialHeap::extractMin()
     }
     operations++;
     lo=removeMinFromTreeReturnBHeap(temp);
-    cout << "after removeMinFromTreeReturnBHeap" << endl;
     heap = unionBinomialHeap(new_heap,lo);
-    cout << "after unionBionomialHeap" << endl;
     adjust();
-    cout << "after adjust" << endl;
     return temp->data;
 }
 
-BNode* BinomialHeap::newBNode(pair<int,int> key)
+BNode::BNode(pair<int,int> key)
 {
-    BNode *temp = new BNode;
-    temp->data = key;
-    temp->degree = 0;
-    temp->child = temp->parent = temp->sibling = NULL;
-    return temp;
+    this->data = key;
+    this->degree = 0;
+    this->child = this->parent = this->sibling = NULL;
 }
 void BinomialHeap::insert(pair<int,int> key)
 {
-    BNode *temp = newBNode(key);
+    BNode *temp = new BNode(key);
     insertATreeInHeap(temp);
 }
 
@@ -217,21 +212,18 @@ BNode* BinomialHeap::getMin()
     list<BNode*>::iterator it = heap.begin();
     BNode *temp = *it;
     operations++;
-    cout << "b4 while in getmin" << endl;
     while (it != heap.end())
     {
         if (((*it)->data).first < (temp->data).first)
             temp = *it;
         it++;
     }
-    cout << "after while in getmin" << endl;
     return temp;
 }
 void BinomialHeap::printTree(BNode *h)
 {
     while (h)
     {
-        cout <<"("<< (h->data).first << " " << (h->data).second<< ")";
         printTree(h->child);
         h = h->sibling;
     }

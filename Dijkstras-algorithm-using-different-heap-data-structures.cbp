@@ -36,9 +36,13 @@
 		</Compiler>
 		<Unit filename="include/BinaryHeap.h" />
 		<Unit filename="include/Graph.h" />
+		<Unit filename="include/FibonacciHeap.h" />
+		<Unit filename="include/BinomialHeap.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/BinaryHeap.cpp" />
 		<Unit filename="src/Graph.cpp" />
+		<Unit filename="src/BinomialHeap.cpp" />
+		<Unit filename="src/FibonacciHeap.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />
