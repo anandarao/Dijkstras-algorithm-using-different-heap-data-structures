@@ -70,7 +70,7 @@ pair<int, int> BinaryHeap::extractMin()
 void BinaryHeap::insertValue(pair<int, int> node)
 {
     nodes.push_back(node);
-    int i;
+    int i = nodes.size() - 1;
     while(i > 0 and nodes[(i-1)/2].first > nodes[i].first)
     {
         swap(nodes[(i-1)/2], nodes[i]);
